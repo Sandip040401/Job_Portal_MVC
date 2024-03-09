@@ -1,0 +1,136 @@
+    
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+
+      h3{
+        margin-top: 10px;
+      }
+      
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .navbar-left {
+        display: flex;
+        margin: 10px;
+      }
+
+      .navbar-left div {
+        margin: 20px;
+      }
+
+      .logo {
+        height: 30px;
+        width: 30px;
+      }
+
+      .navbar-right {
+        display: flex;
+        margin: 30px;
+      }
+
+      .search-bar {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .main {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Align items at the start (top) of the flex container */
+      }
+
+      .left-card-container {
+        display: flex;
+        flex-direction: column; /* Stack children vertically */
+      }
+
+      .left-card {
+        margin: 30px 10px 1px 30px; /* Adjust the margin as needed */
+        height: auto; /* Adjust the height as needed */
+        width: 450px; /* Adjust the width as needed */
+        border: 1px rgb(0, 64, 255) solid;
+        border-radius: 10px;
+      }
+
+      .left-card div{
+        margin-left:10px ;
+      }
+
+      .right-card {
+        position: sticky;
+        top: 10px;
+        height: 300px;
+        margin: 30px;
+        width: 450px; /* Adjust the width as needed */
+        z-index: 999;
+        border: 1px grey solid;
+        border-radius: 10px;
+      }
+
+      .hr-footer{
+        margin-top: 10px;
+      }
+
+      a{
+        text-decoration: none;
+        color: black;
+      }
+
+
+    </style>
+
+  <div class="navbar">
+    <div class="navbar-left">
+      <div><img src="images/logo.png" alt="logo" class="logo"></div>
+      <div><p class="home">Home</p></div>
+      <div><p class="Company-reviews">Company reviews</p></div>
+      <div><p class="Salary-guide">Salary guide</p></div>
+    </div>
+    <div class="navbar-right">
+      <div><a href="/login">Employers/Post Job</a></div>
+    </div>
+  </div>
+  <hr>
+  <div class="search">
+    <form action="/search" method="get" class="search-bar">
+      <label for="search">Search:</label>
+      <input type="text" id="search" name="q" placeholder="Type your search query...">
+
+      <label for="category">Category:</label>
+      <select id="category" name="category">
+         
+      </select>
+
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <hr>
+  <div class="main">
+    <div class="left-card-container">
+    <% jobs.forEach(job=> {%>
+      <div class="left-card">
+         <div><h3><%=job.companyName %></h3></div>
+         <div><h6><%=job.jobType %></h6></div>
+         <div><h6><%=job.country %></h6></div>
+         <div><h5><%=job.salary %></h5></div>
+         <div><p><%=job.desc %></p></div>
+      </div>
+    <% }) %>
+    </div>
+  
+    <div class="right-card">
+      <!-- Content of the right card -->
+    </div>
+  </div>
+  <hr class="hr-footer">
+  <div class="footer">
+    <p>&copy; 2024 Job Tank. All rights reserved.</p>
+    <p>Contact us: info@jobtank.com</p>
+  </div>  
